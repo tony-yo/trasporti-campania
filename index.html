@@ -1,0 +1,16 @@
+<h1>Trasporti Campania</h1>
+<div id="app"></div>
+
+<script>
+fetch("data/avvisi.json")
+  .then(r => r.json())
+  .then(data => {
+    document.getElementById("app").innerHTML =
+      data.map(a => `
+        <div>
+          <b>${a.titolo}</b><br>
+          <small>${a.fonte}</small>
+        </div>
+      `).join("");
+  });
+</script>
